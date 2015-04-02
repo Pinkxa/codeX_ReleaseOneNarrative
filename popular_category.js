@@ -19,6 +19,7 @@ module.exports = function(){
     var salesObj = {
           itemName : columns[2],
           soldItems: Number(columns[3])
+          category: columns[4]
           };
           listOfProducts.push(salesObj);
      });
@@ -45,14 +46,14 @@ module.exports = function(){
 
       //Think about creating a list of objects from the csv
          //Create a function that find the most popular product, put it in a module and write a unit test.
-      this.mostPopularPdt = function(itemMap){
-           var mostPopularProduct = {};
+      this.mostPopularCat = function(itemMap){
+           var mostPopularCategory = {};
            var max = 0;
            for(var prop in itemMap) {
              var value = itemMap[prop];
              if(itemMap[prop] > max) {
               max = itemMap[prop];
-              mostPopularProduct = {
+              mostPopularCategory = {
                name : prop,
                amt  : max
              }
@@ -62,22 +63,20 @@ module.exports = function(){
          return mostPopularProduct;
      };
 
-     this.leastPopularPdt = function(itemMap){
-           var leastPopularProduct = {};
+     this.leastPopularCat = function(itemMap){
+           var leastPopularCategory = {};
            var min = 172;
            for(var prop in itemMap) {
              var value = itemMap[prop];
              if(itemMap[prop] < min) {
               min = itemMap[prop];
-              leastPopularProduct = {
+              leastPopularCategory = {
                name : prop,
                amt  : min
              }
            }
          }
          //console.log(itemMap);
-         return leastPopularProduct;
+         return leastPopularCategory;
     };
 };
-
-
